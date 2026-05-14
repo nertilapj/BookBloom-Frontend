@@ -1,0 +1,49 @@
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div>
+      <h2 class="gradient-text m-0 text-uppercase">Koleksioni Im</h2>
+      <small class="text-muted">📚 Ti ke fuqinë e dijes në duart e tua</small>
+    </div>
+    <button class="btn btn-gradient shadow-sm" routerLink="/create">
+      <i class="fas fa-plus me-2"></i> Shto Libër
+    </button>
+  </div>
+
+  <div class="glass-card shadow p-4">
+    <table class="table table-hover">
+      <thead>
+        <tr style="color: #7b1fa2; border-bottom: 2px solid #fce4ec;">
+          <th>ID</th>
+          <th>Titulli</th>
+          <th>Autori</th>
+          <th class="text-center">Veprime</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let b of books">
+          <td class="fw-bold">#{{ b.id }}</td>
+          <td><i class="fas fa-book me-2 text-muted"></i>{{ b.title }}</td>
+          <td>
+            <span class="badge rounded-pill" style="background: #f3e5f5; color: #7b1fa2; border: 1px solid #e1bee7;">
+              {{ b.author }}
+            </span>
+          </td>
+          <td class="text-center">
+            <button class="btn btn-sm btn-outline-primary rounded-pill me-2" [routerLink]="['/edit', b.id]">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-danger rounded-pill" (click)="deleteBook(b.id)">
+              <i class="fas fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <!-- Vizatimi dekorativ në fund -->
+    <div class="text-center mt-5 pt-3 border-top border-light opacity-50">
+       <i class="fas fa-books fa-2x"></i>
+       <p class="small mt-2">BookBloom &copy; 2026</p>
+    </div>
+  </div>
+</div>

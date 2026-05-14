@@ -1,0 +1,25 @@
+<div class="card col-md-6 mx-auto" *ngIf="book">
+  <div class="card-header bg-warning text-dark">
+    <h4>Ndrysho Të Dhënat e Librit</h4>
+  </div>
+  <div class="card-body">
+    <form (ngSubmit)="updateBook()">
+      <div class="mb-3">
+        <label class="form-label">Titulli</label>
+        <input type="text" [(ngModel)]="book.title" name="title" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Autori</label>
+        <input type="text" [(ngModel)]="book.author" name="author" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Përshkrimi</label>
+        <textarea [(ngModel)]="book.description" name="description" class="form-control" rows="3"></textarea>
+      </div>
+      <div class="d-flex justify-content-between">
+        <a routerLink="/" class="btn btn-secondary">Anulo</a>
+        <button type="submit" class="btn btn-warning">Përditëso</button>
+      </div>
+    </form>
+  </div>
+</div>
